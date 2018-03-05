@@ -3,39 +3,18 @@ import json
 
 import requests
 
-from .mail_check import decorator
-
 
 class Mail(object):
-
     def __init__(self):
         # TODO will change this code
-        self.send_mail = 'http://api.sendcloud.net/apiv2/mail/send'
+        self.send_mail_url = 'http://api.sendcloud.net/apiv2/mail/send'
 
     def _post_data(self, url, **kwargs):
         resp = requests.post(url, data=kwargs)
         return resp
 
-    @decorator
-    def send_email_simple(self, **kwargs):
-        """
-        * apiUser: API_USER
-        * apiKey; API_KEY
-        * from: send email addr
-        * to: send to email, split by ';' eg: a@123.com;b@123.com
-        * subject: email title
-        * html: email content, format:text/html
-        * contentSummary: email summary
-        * fromName:send name
-        * cc: copy to,split by ";" eg:a@123.com;b@123.com
-        * bcc: secret copy to, split by ; eg:a@123.com;b@123.com
-        * replyTo: default reply to, less than 3
-        * useAddressList: default False, if to is list than set this True
-        :param kwargs: 
-        :return: 
-        """
-
-        resp = self._post_data(self.send_mail, **kwargs)
+    def send_email(self, **kwargs):
+        resp = self._post_data(self.send_mail_url, **kwargs)
         if resp.status_code == 200:
             try:
                 content = json.loads(resp.content)
@@ -50,4 +29,5 @@ class Mail(object):
                 "result": False,
                 "message": "send email error http code %s" % resp.status_code
             }
+        print('content', content)
         return content

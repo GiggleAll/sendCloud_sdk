@@ -9,7 +9,7 @@ import requests
 
 url = "http://api.sendcloud.net/apiv2/mail/send"
 
-API_USER = 'zhichaozhang_test_ZGnoAq'
+API_USER = 'zhichaozhang_xxx'
 API_KEY = 'LJB2mqIGvht2FzHo'
 
 params = {

@@ -4,7 +4,7 @@ import requests, json
 
 url = "http://sendcloud.sohu.com/webapi/mail.send_template.json"                         
 
-API_USER = 'zhichaozhang_test_ZGnoAq'
+API_USER = 'zhichaozhang_tesxxx'
 API_KEY = 'LJB2mqIGvht2FzHo'
 
 sub_vars = {
