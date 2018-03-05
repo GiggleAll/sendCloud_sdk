@@ -16,11 +16,11 @@ sub_vars = {
 }
 
 params = {
-    "api_user": API_USER, # 使用api_user和api_key进行验证                       
+    "api_user": API_USER,
     "api_key" : API_KEY,                                             
     "template_invoke_name" : "test_template",
     "substitution_vars" : json.dumps(sub_vars),
-    "from" : "sendcloud@sendcloud.org", # 发信人, 用正确邮件地址替代
+    "from" : "sendcloud@sendcloud.org",
     "fromname" : "SendCloud",
     "subject" : "SendCloud python template",
     "resp_email_id": "true",
